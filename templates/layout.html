@@ -1,16 +1,72 @@
-<!doctype html>
-<title>FizzBuzz Cola</title>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+   	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+</style>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<div class="container">
 <div class=page>
-	<h1>FizzBuzz Cola</h1>
-	<h2>{% block title %}{% endblock %}</h2>
-  	<div class=metanav>
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
-		<a href="{{ url_for('inventory') }}">inventory</a> || <a href="{{ url_for('login') }}">log in</a> || <a href="{{ url_for('logout') }}">log out</a>
-  	</div>
+
+
+
+
+
+	     <div class="jumbotron">
+            <h1>FizzBuzz Cola </h1>
+            <p>{% block title %}{% endblock %}</p>
+        </div>
+
+
+        	<ul>
+	  <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
+	  <li><a href="{{ url_for('login') }}">Log In</a></li>
+	  <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+	</ul>
+
+
 	{% for message in get_flashed_messages() %}
 	<div class=flash>{{ message }}</div>
 	{% endfor %}
 
 	{% block body %}{% endblock %}
 </div>
+</div>
+</body>
+</html>
